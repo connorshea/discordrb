@@ -5,7 +5,52 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
-[View diff for this release.](https://github.com/meew0/discordrb/compare/v3.2.1...HEAD)
+[View diff for this release.](https://github.com/meew0/discordrb/compare/v3.3.0...HEAD)
+
+## [3.3.0] - TBD
+
+### Added
+
+- API methods to add and remove single member roles ([#310](https://github.com/meew0/discordrb/pull/310))
+- API methods and abstractions for listing available voice regions ([#311](https://github.com/meew0/discordrb/pull/311))
+- `Server` methods to prune members and to get the number of members available for pruning ([#315](https://github.com/meew0/discordrb/pull/315))
+- Methods for filtering the kinds of overwrites present on a channel ([#321](https://github.com/meew0/discordrb/pull/321))
+- `Channel#default_channl?`, for checking if a channel is the default channel of a server ([#320](https://github.com/meew0/discordrb/pull/320), thanks @Reaver01)
+- Method for returning a `Server`'s `@everyone` role
+- Reaction can now be serialized with `#to_s` to be used in `Message#react` more easily ([#342](https://github.com/meew0/discordrb/pull/342))
+- Additional objects and attributes for parsing embeds on messages([#344](https://github.com/meew0/discordrb/pull/344), thanks @mattantonelli)
+- Methods for finding a members highest role, the role that is hoisting the member, or giving the member color ([#335](https://github.com/meew0/discordrb/pull/335), thanks @Snazzah)
+- API support for managing webhooks ([#356](https://github.com/meew0/discordrb/pull/356), thanks @Daniel-Worrall)
+
+### Changed
+
+- `Channel#make_invite` now accepts an argument to always return a unique invite code ([#312](https://github.com/meew0/discordrb/pull/312))
+- More of the API accepts objects that respond to `#resolve_id` ([#313](https://github.com/meew0/discordrb/pull/313), [#328](https://github.com/meew0/discordrb/pull/328), thanks @LikeLakers2)
+- `Channel#history` and `API::Channel.messages` now accepts `around_id` ([#314](https://github.com/meew0/discordrb/pull/314))
+- `API::Server.prune_count` accepts `days` ([#315](https://github.com/meew0/discordrb/pull/315))
+- Methods for creating channels accept additional arguments ([#321](https://github.com/meew0/discordrb/pull/321))
+- `Channel` overwrite-related API now returns an `Overwrite` object ([#321](https://github.com/meew0/discordrb/pull/321))
+- Creating roles now accepts more parameters([#323](https://github.com/meew0/discordrb/pull/323), thanks @Reaver01)
+- Ratelimits are now logged to a `:ratelimit` logging level and can be configured
+- `client_id` in `Bot#initilalize` is now optional, and will be cached automatically by the API when needed ([#337](https://github.com/meew0/discordrb/pull/337))
+- `Voice::Encoder#encode_file` now accepts options for ffmpeg ([#341](https://github.com/meew0/discordrb/pull/341), thanks @oyisre)
+- Objects that implement `IDObject` can now be compared using more operators ([#346](https://github.com/meew0/discordrb/pull/346), thanks @mattantonelli)
+- Filled in permissions bit for viewing a server's audit log ([#349](https://github.com/meew0/discordrb/pull/349), thanks @Daniel-Worrall)
+- https://cdn.discordapp.com is now used as the base URL for CDN resources like avatars and server icons ([#358](https://github.com/meew0/discordrb/pull/358))
+- Reaction events raised from the bots actions will respect `parse_self` ([#350](https://github.com/meew0/discordrb/pull/350), thanks @Daniel-Worrall)
+
+### Dreprecated
+
+### Removed
+
+### Fixed
+
+- `Errors::MessageTooLong` is now raised correctly ([#325](https://github.com/meew0/discordrb/pull/325), thanks @Daniel-Worrall)
+- Certain `Reaction` related events now properly inherit `Event` ([#329](https://github.com/meew0/discordrb/pull/329), thanks @valeth)
+- Permissions calculation now takes the server's `@everyone` role permissions into consideration (additional work by [#357](https://github.com/meew0/discordrb/pull/357), thanks @mattantonelli)
+- `Role#members` had a typo preventing it from working ([#340](https://github.com/meew0/discordrb/pull/340))
+- `Message#my_reactions` now correctly returns `Array<Reaction>` ([#342](https://github.com/meew0/discordrb/pull/342))
+- Several internal checks have been added to make bots more resilient to zombie connections
 
 ## [3.2.1] - 2017-02-18
 [3.2.1]: https://github.com/meew0/discordrb/releases/tag/v3.2.1
