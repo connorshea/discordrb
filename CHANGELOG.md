@@ -61,7 +61,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Fixed
 
 - `Errors::MessageTooLong` is now raised correctly ([#325](https://github.com/meew0/discordrb/pull/325), thanks @Daniel-Worrall)
-- Certain `Reaction` related events now properly inherit `Event` ([#329](https://github.com/meew0/discordrb/pull/329), thanks @valeth)
+- Certain `Reaction` related events properly inherit `Event` ([#329](https://github.com/meew0/discordrb/pull/329), thanks @valeth)
 - Permissions calculation now takes the server's `@everyone` role permissions into consideration (additional work by [#357](https://github.com/meew0/discordrb/pull/357), thanks @mattantonelli)
 - `Role#members` had a typo preventing it from working ([#340](https://github.com/meew0/discordrb/pull/340))
 - `Message#my_reactions` now correctly returns `Array<Reaction>` ([#342](https://github.com/meew0/discordrb/pull/342))
@@ -70,6 +70,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Corrected implementation of the `reason` parameter in various API ([#372](https://github.com/meew0/pull/372))
 - `CommandBot`'s advanced functionality properly handles empty strings in certain settings ([#370](https://github.com/meew0/discordrb/pull/379), thanks @LikeLakers2)
 - Rate limit headers are processed correctly when running into certain API exceptions ([#440](https://github.com/meew0/discordrb/pull/440), thanks @unleashy)
+- Typos preventing `ArgumentError` from being raised when processing `arg_types` ([#400](https://github.com/meew0/discordrb/pull/400), thanks @Daniel-Worrall)
 
 ## [3.2.1] - 2017-02-18
 [3.2.1]: https://github.com/meew0/discordrb/releases/tag/v3.2.1
