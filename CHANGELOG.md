@@ -21,6 +21,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Additional objects and attributes for parsing embeds on messages([#344](https://github.com/meew0/discordrb/pull/344), thanks @mattantonelli)
 - Methods for finding a members highest role, the role that is hoisting the member, or giving the member color ([#335](https://github.com/meew0/discordrb/pull/335), thanks @Snazzah)
 - API support for managing webhooks ([#356](https://github.com/meew0/discordrb/pull/356), thanks @Daniel-Worrall)
+- Support for reading and managing a channel's `nsfw` property ([#380](https://github.com/meew0/discordrb/pull/380))
+- The `:administrator` permissions value is aliased as `:administrate` ([#322](https://github.com/meew0/discordrb/pull/322))
+- Class methods on `Permissions` for easily building permissions bits values ([#322](https://github.com/meew0/discordrb/pull/322))
+- `Gateway#send_packet` and `Gateway#send_raw` methods to send custom data payloads to the gateway
+- Methods for reading `icon_url` and `proxy_icon_url` in `EmbedAuthor`
+- Methods for obtaining a server and channels invites ([#394](https://github.com/meew0/discordrb/pull/394))
 
 ### Changed
 
@@ -38,6 +44,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Filled in permissions bit for viewing a server's audit log ([#349](https://github.com/meew0/discordrb/pull/349), thanks @Daniel-Worrall)
 - https://cdn.discordapp.com is now used as the base URL for CDN resources like avatars and server icons ([#358](https://github.com/meew0/discordrb/pull/358))
 - Reaction events raised from the bots actions will respect `parse_self` ([#350](https://github.com/meew0/discordrb/pull/350), thanks @Daniel-Worrall)
+- `Webhooks::Embed#initialize` parses its `color` argument ([#364](https://github.com/meew0/discordrb/pull/364), thanks @Daniel-Worrall)
+- Webhook related events can now be matched on webhook ID ([#363](https://github.com/meew0/discordrb/pull/363), thanks @Daniel-Worrall)
+- Discord's default user avatar URLs will now be returned when applicable ([#375](https://github.com/meew0/discordrb/pull/375))
+- `Cache#find_user` can now find individual users if name and discriminator is given ([#384](https://github.com/meew0/discordrb/pull/384))
+- `ReactionEvent` provides server, and member if possible ([#351](https://github.com/meew0/discordrb/pull/351), thanks @Daniel-Worrall)
+- Installation instructions now include guides for installing with bundler ([#386](https://github.com/meew0/discordrb/pull/386), thanks @VxJasonxV)
+- `default_channel` implementation is updated to reflect Discord changes ([#382](https://github.com/meew0/discordrb/pull/382))
+- Documentation around the conditions where our API returns `nil` is clarified ([#395](https://github.com/meew0/discordrb/pull/395), thanks @LikeLakers2)
+- Whenever possible, we update cached data about a `Server` returned to us from making changes to it
 
 ### Dreprecated
 
@@ -51,6 +66,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `Role#members` had a typo preventing it from working ([#340](https://github.com/meew0/discordrb/pull/340))
 - `Message#my_reactions` now correctly returns `Array<Reaction>` ([#342](https://github.com/meew0/discordrb/pull/342))
 - Several internal checks have been added to make bots more resilient to zombie connections
+- Documentation for `TypingEvent` is now more accurate ([#367](https://github.com/meew0/discordrb/pull/367), thanks @Snazzah)
+- Corrected implementation of the `reason` parameter in various API ([#372](https://github.com/meew0/pull/372))
+- `CommandBot`'s advanced functionality properly handles empty strings in certain settings ([#370](https://github.com/meew0/discordrb/pull/379), thanks @LikeLakers2)
+- Rate limit headers are processed correctly when running into certain API exceptions ([#440](https://github.com/meew0/discordrb/pull/440), thanks @unleashy)
 
 ## [3.2.1] - 2017-02-18
 [3.2.1]: https://github.com/meew0/discordrb/releases/tag/v3.2.1
