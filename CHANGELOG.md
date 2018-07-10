@@ -27,6 +27,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - `Gateway#send_packet` and `Gateway#send_raw` methods to send custom data payloads to the gateway
 - Methods for reading `icon_url` and `proxy_icon_url` in `EmbedAuthor`
 - Methods for obtaining a server and channels invites ([#394](https://github.com/meew0/discordrb/pull/394))
+- Example of using awaits ([#370](https://github.com/meew0/discordrb/pull/370))
+- Methods on `Member` for kicking and banning ([#404](https://github.com/meew0/discordrb/pull/404))
+- API method and abstraction for adding members to guilds with OAuth2 tokens ([#413](https://github.com/meew0/discordrb/pull/413/files))
+- Example of using a prefix proc ([#411](https://github.com/meew0/discordrb/pull/413))
 
 ### Changed
 
@@ -49,10 +53,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Discord's default user avatar URLs will now be returned when applicable ([#375](https://github.com/meew0/discordrb/pull/375))
 - `Cache#find_user` can now find individual users if name and discriminator is given ([#384](https://github.com/meew0/discordrb/pull/384))
 - `ReactionEvent` provides server, and member if possible ([#351](https://github.com/meew0/discordrb/pull/351), thanks @Daniel-Worrall)
-- Installation instructions now include guides for installing with bundler ([#386](https://github.com/meew0/discordrb/pull/386), thanks @VxJasonxV)
+- Installation instructions now include guides for installing with bundler ([#386](https://github.com/meew0/discordrb/pull/386), [#405](https://github.com/meew0/discordrb/pull/405), thanks @VxJasonxV and @PixeLInc)
 - `default_channel` implementation is updated to reflect Discord changes ([#382](https://github.com/meew0/discordrb/pull/382))
 - Documentation around the conditions where our API returns `nil` is clarified ([#395](https://github.com/meew0/discordrb/pull/395), thanks @LikeLakers2)
 - Whenever possible, we update cached data about a `Server` returned to us from making changes to it
+- `Cache#server` now returns `nil` if a server is not found instead of raising an exception ([#424](https://github.com/meew0/discordrb/pull/424), thanks @soukouki)
+- `Bucket#rate_limited?` now accepts `increment` value for weighted rate limits ([#427](https://github.com/meew0/discordrb/pull/427), thanks @Lavode)
+- `Server#bans` now returns `Array<ServerBan>`, which contains `reason` data in addition to the user banned ([#404](https://github.com/meew0/discordrb/pull/404))
+- `Channel#pune` now accepts a block that can be used to filter the messages to be pruned ([#421](https://github.com/meew0/discordrb/pull/421), thanks @snapcase)
 
 ### Dreprecated
 
@@ -68,9 +76,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Several internal checks have been added to make bots more resilient to zombie connections
 - Documentation for `TypingEvent` is now more accurate ([#367](https://github.com/meew0/discordrb/pull/367), thanks @Snazzah)
 - Corrected implementation of the `reason` parameter in various API ([#372](https://github.com/meew0/pull/372))
-- `CommandBot`'s advanced functionality properly handles empty strings in certain settings ([#370](https://github.com/meew0/discordrb/pull/379), thanks @LikeLakers2)
+- `CommandBot`'s advanced functionality properly handles empty strings in certain settings ([#379](https://github.com/meew0/discordrb/pull/379), thanks @LikeLakers2)
 - Rate limit headers are processed correctly when running into certain API exceptions ([#440](https://github.com/meew0/discordrb/pull/440), thanks @unleashy)
 - Typos preventing `ArgumentError` from being raised when processing `arg_types` ([#400](https://github.com/meew0/discordrb/pull/400), thanks @Daniel-Worrall)
+- `Server#create_role` correctly accepts a `ColourRGB` via `#combined`
 
 ## [3.2.1] - 2017-02-18
 [3.2.1]: https://github.com/meew0/discordrb/releases/tag/v3.2.1
