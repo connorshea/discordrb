@@ -80,6 +80,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Rate limit headers are processed correctly when running into certain API exceptions ([#440](https://github.com/meew0/discordrb/pull/440), thanks @unleashy)
 - Typos preventing `ArgumentError` from being raised when processing `arg_types` ([#400](https://github.com/meew0/discordrb/pull/400), thanks @Daniel-Worrall)
 - `Server#create_role` correctly accepts a `ColourRGB` via `#combined`
+- `EventContainer#add_handler` correctly adds handlers for events that haven't had internal storage created for them yet
+- When a server is cached, its channels are now cached correctly in a way that prevents 
 
 ## [3.2.1] - 2017-02-18
 [3.2.1]: https://github.com/meew0/discordrb/releases/tag/v3.2.1
