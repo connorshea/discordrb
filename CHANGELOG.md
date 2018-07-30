@@ -31,6 +31,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Methods on `Member` for kicking and banning ([#404](https://github.com/meew0/discordrb/pull/404))
 - API method and abstraction for adding members to guilds with OAuth2 tokens ([#413](https://github.com/meew0/discordrb/pull/413/files))
 - Example of using a prefix proc ([#411](https://github.com/meew0/discordrb/pull/413))
+- Methods for managing a server's system channel ([#437](https://github.com/meew0/discordrb/pull/437), thanks @ldelelis)
 
 ### Changed
 
@@ -81,7 +82,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Typos preventing `ArgumentError` from being raised when processing `arg_types` ([#400](https://github.com/meew0/discordrb/pull/400), thanks @Daniel-Worrall)
 - `Server#create_role` correctly accepts a `ColourRGB` via `#combined`
 - `EventContainer#add_handler` correctly adds handlers for events that haven't had internal storage created for them yet
-- When a server is cached, its channels are now cached correctly in a way that prevents 
+- When a server is initially cached, its channels are now cached in a way that prevents REST exceptions from being raised when attempting to process gateway events with uncached channels as a subject ([#391](https://github.com/meew0/discordrb/pull/391))
 
 ## [3.2.1] - 2017-02-18
 [3.2.1]: https://github.com/meew0/discordrb/releases/tag/v3.2.1
