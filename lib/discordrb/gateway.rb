@@ -458,6 +458,7 @@ module Discordrb
           rescue StandardError => e
             LOGGER.error('An error occurred while heartbeating!')
             LOGGER.log_exception(e)
+            break
           end
         end
       end
