@@ -171,6 +171,7 @@ module Discordrb
       LOGGER.debug('WS thread created! Now waiting for confirmation that everything worked')
       loop do
         LOGGER.error('loop1')
+        LOGGER.error("sleeping for 0.5")
         sleep(0.5)
 
         if @ws_success
@@ -452,16 +453,17 @@ module Discordrb
             # Send a heartbeat if heartbeats are active and either no session exists yet, or an existing session is
             # suspended (e.g. after op7)
             if (@session && !@session.suspended?) || !@session
+              LOGGER.error("sleeping for #{@heartbeat_interval}")
               sleep @heartbeat_interval
               @bot.raise_heartbeat_event
               heartbeat
             else
+              LOGGER.error("sleeping for 1")
               sleep 1
             end
           rescue StandardError => e
             LOGGER.error('An error occurred while heartbeating!')
             LOGGER.log_exception(e)
-            break
           end
         end
       end
@@ -494,6 +496,7 @@ module Discordrb
     def wait_for_reconnect
       # We disconnected in an unexpected way! Wait before reconnecting so we don't spam Discord's servers.
       LOGGER.debug("Attempting to reconnect in #{@falloff} seconds.")
+      LOGGER.error("sleeping for #{@falloff}")
       sleep @falloff
 
       # Calculate new falloff
@@ -609,6 +612,7 @@ module Discordrb
           # Check if we actually got data
           unless recv_data
             # If we didn't, wait
+            LOGGER.error("sleeping for 1")
             sleep 1
             next
           end
@@ -759,6 +763,7 @@ module Discordrb
 
       # The heartbeat interval is given in ms, so divide it by 1000 to get seconds
       interval = packet['d']['heartbeat_interval'].to_f / 1000.0
+      LOGGER.error("interval: #{interval}")
       setup_heartbeats(interval)
 
       LOGGER.debug("Trace: #{packet['d']['_trace']}")
