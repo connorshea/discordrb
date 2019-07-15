@@ -170,6 +170,7 @@ module Discordrb
 
       LOGGER.debug('WS thread created! Now waiting for confirmation that everything worked')
       loop do
+        LOGGER.error('loop1')
         sleep(0.5)
 
         if @ws_success
@@ -446,6 +447,7 @@ module Discordrb
       @heartbeat_thread = Thread.new do
         Thread.current[:discordrb_name] = 'heartbeat'
         loop do
+          LOGGER.error('loop3')
           begin
             # Send a heartbeat if heartbeats are active and either no session exists yet, or an existing session is
             # suspended (e.g. after op7)
@@ -471,6 +473,7 @@ module Discordrb
 
       @should_reconnect = false
       loop do
+        LOGGER.error('loop2')
         connect
 
         break unless @should_reconnect
