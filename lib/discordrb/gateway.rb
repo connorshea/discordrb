@@ -1,3 +1,4 @@
+# typed: ignore
 # frozen_string_literal: true
 
 # This file uses code from Websocket::Client::Simple, licensed under the following license:
