@@ -155,7 +155,7 @@ module Discordrb
       # Whether the connection to the gateway has succeeded yet
       @ws_success = false
 
-      @check_heartbeat_acks = true
+      @check_heartbeat_acks = false
 
       @compress_mode = compress_mode
     end
@@ -469,7 +469,7 @@ module Discordrb
       # Initialize falloff so we wait for more time before reconnecting each time
       @falloff = 1.0
 
-      @should_reconnect = true
+      @should_reconnect = false
       loop do
         connect
 
