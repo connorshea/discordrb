@@ -428,21 +428,7 @@ module Discordrb
     FATAL_CLOSE_CODES = [4003, 4004, 4011].freeze
 
     def handle_close(e)
-      @bot.__send__(:raise_event, Events::DisconnectEvent.new(@bot))
-
-      if e.respond_to? :code
-        # It is a proper close frame we're dealing with, print reason and message to console
-        LOGGER.error('Websocket close frame received!')
-        LOGGER.error("Code: #{e.code}")
-        LOGGER.error("Message: #{e.data}")
-        @should_reconnect = false if FATAL_CLOSE_CODES.include?(e.code)
-      elsif e.is_a? Exception
-        # Log the exception
-        LOGGER.error('The websocket connection has closed due to an error!')
-        LOGGER.log_exception(e)
-      else
-        LOGGER.error("The websocket connection has closed: #{e&.inspect || '(no information)'}")
-      end
+      puts 'test'
     end
 
     def send(data, type = :text)
